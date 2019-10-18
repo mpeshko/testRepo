@@ -1,5 +1,3 @@
-package tests;
-
 import forms.AdvancedSearchPage;
 import forms.KinoPoiskManagerPage;
 import forms.SearchResultPage;
@@ -8,11 +6,11 @@ import org.testng.annotations.Test;
 import tests.base.BaseTest;
 import tests.base.annotations.TestInfo;
 
-@TestInfo(id = 1)
-public class PassedTest extends BaseTest {
+@TestInfo(id = 2)
+public class TestKinopoisk extends BaseTest {
 
-  @Override
-    public void run() {
+    @Override
+       public void run() {
 
         KinoPoiskManagerPage manager = new KinoPoiskManagerPage();
         manager.clickAdvancedSearch();

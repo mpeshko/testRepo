@@ -4,9 +4,4 @@
             <class name="tests.PassedTest"/>
         </classes>
     </test>
-    <test name="Failed-test">
-        <classes>
-            <class name="tests.FailedTest"/>
-        </classes>
-    </test>
 </suite>
