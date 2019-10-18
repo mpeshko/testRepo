@@ -1,7 +1,0 @@
-<suite name="TestRail: Test cases" parallel="classes" thread-count="1">
-    <test name="Passed-test">
-        <classes>
-            <class name="tests.PassedTest"/>
-        </classes>
-    </test>
-</suite>
