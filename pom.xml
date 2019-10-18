@@ -39,12 +39,6 @@
             <artifactId>selenium-chrome-driver</artifactId>
             <version>3.141.59</version>
         </dependency>
-        <dependency>
-        <groupId>com.a1qa</groupId>
-        <artifactId>selenium-java</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-        <scope>test</scope>
-        </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.testng/testng -->
         <dependency>
