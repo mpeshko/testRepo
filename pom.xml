@@ -4,51 +4,41 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.a1qa</groupId>
-    <artifactId>testng-template-project</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-
-    <properties>
-        <aspectj.version>1.8.10</aspectj.version>
-        <repositoryId>nexus</repositoryId>
-        <repositoriesHost>https://qa-auto-nexus.demohoster.com/repository</repositoriesHost>
-        <snapshotRepositoryUrl>${repositoriesHost}/maven-snapshots/</snapshotRepositoryUrl>
-        <releasesRepositoryUrl>${repositoriesHost}/maven-releases/</releasesRepositoryUrl>
-        <publicRepositoryUrl>${repositoriesHost}/maven-public/</publicRepositoryUrl>
-        <snapshotsRepositoryName>Nexus Snapshots</snapshotsRepositoryName>
-        <releasesRepositoryName>Nexus Releases</releasesRepositoryName>
-        <publicRepositoryName>Nexus Repository</publicRepositoryName>
-        <suite>TestSuite</suite>
-    </properties>
-
-    <repositories>
-        <repository>
-            <id>${repositoryId}</id>
-            <name>${publicRepositoryName}</name>
-            <url>${publicRepositoryUrl}</url>
-        </repository>
-    </repositories>
-
-    <distributionManagement>
-        <repository>
-            <id>${repositoryId}</id>
-            <name>${releasesRepositoryName}</name>
-            <url>${releasesRepositoryUrl}</url>
-        </repository>
-        <snapshotRepository>
-            <id>${repositoryId}</id>
-            <name>${snapshotsRepositoryName}</name>
-            <url>${snapshotRepositoryUrl}</url>
-        </snapshotRepository>
-    </distributionManagement>
+    <groupId>TestGit</groupId>
+    <artifactId>TestGitRepo</artifactId>
+    <version>1.0-SNAPSHOT</version>
 
     <dependencies>
-        <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.8</version>
-            <scope>provided</scope>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>3.141.59</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-support -->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-support</artifactId>
+            <version>3.141.59</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>3.6.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.14.3</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-chrome-driver</artifactId>
+            <version>3.141.59</version>
         </dependency>
 
         <!-- https://mvnrepository.com/artifact/org.testng/testng -->
@@ -58,68 +48,10 @@
             <version>6.14.3</version>
             <scope>test</scope>
         </dependency>
-
-        <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-testng</artifactId>
-            <version>2.6.0</version>
-        </dependency>
-
-        <dependency>  <!-- General purpose core library (used by Guice, Selenium and Allure) -->
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>24.1-jre</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.a1qa</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>LATEST</version>
-            <exclusions>
-                <exclusion>  <!-- Exclude Guava to set it's exact version explicitly in the POM -->
-                    <groupId>com.google.guava</groupId>
-                    <artifactId>guava</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <dependency>
-            <groupId>com.a1qa</groupId>
-            <artifactId>support-utils-java</artifactId>
-            <version>LATEST</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.a1qa</groupId>
-            <artifactId>assert-java</artifactId>
-            <version>LATEST</version>
-        </dependency>
-
-        <dependency>
-            <groupId>javax.xml.bind</groupId>
-            <artifactId>jaxb-api</artifactId>
-            <version>2.4.0-b180830.0359</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple -->
         <dependency>
             <groupId>com.googlecode.json-simple</groupId>
             <artifactId>json-simple</artifactId>
             <version>1.1.1</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.apache.httpcomponents/httpclient -->
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpclient</artifactId>
-            <version>4.5.9</version>
-        </dependency>
-
-        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>2.5</version>
         </dependency>
 
     </dependencies>
@@ -127,18 +59,13 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>io.qameta.allure</groupId>
-                <artifactId>allure-maven</artifactId>
-                <version>2.9</version>
-            </plugin>
-
-            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.2</version>
+                <version>3.6.1</version>
                 <configuration>
                     <source>1.8</source>
                     <target>1.8</target>
+                    <encoding>UTF-8</encoding>
                 </configuration>
             </plugin>
 
@@ -147,22 +74,14 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.20</version>
                 <configuration>
-                    <argLine>
-                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-                    </argLine>
                     <suiteXmlFiles>
                         <suiteXmlFile>src/test/resources/${suite}.xml</suiteXmlFile>
                     </suiteXmlFiles>
+                    <testFailureIgnore>true</testFailureIgnore>
                 </configuration>
-                <dependencies>
-                    <dependency>
-                        <groupId>org.aspectj</groupId>
-                        <artifactId>aspectjweaver</artifactId>
-                        <version>${aspectj.version}</version>
-                    </dependency>
-                </dependencies>
             </plugin>
-
         </plugins>
     </build>
+
+
 </project>
